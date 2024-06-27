@@ -16,4 +16,8 @@ class Point(private var x: Double, private var y: Double) {
     fun setY(y: Double) {
         this.y = y
     }
+
+    fun clone(): Point {
+        return Point(x, y)
+    }
 }
