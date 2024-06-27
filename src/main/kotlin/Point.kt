@@ -9,12 +9,12 @@ class Point(private var x: Double, private var y: Double) {
         return y
     }
 
-    fun setX(x: Double) {
-        this.x = x
+    fun moveX(x: Double) {
+        this.x += x
     }
 
-    fun setY(y: Double) {
-        this.y = y
+    fun moveY(y: Double) {
+        this.y += y
     }
 
     fun clone(): Point {

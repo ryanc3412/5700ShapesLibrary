@@ -26,4 +26,12 @@ class Line(val point1: Point, val point2: Point) {
         val dy = Math.abs(point2.getY() - point1.getY())
         return sqrt(dx.pow(2) + dy.pow(2))
     }
+
+    // move whole line by delta in each axis
+    fun moveLine(x: Double, y: Double) {
+        point1.moveX(x)
+        point2.moveX(x)
+        point1.moveY(y)
+        point2.moveY(y)
+    }
 }
