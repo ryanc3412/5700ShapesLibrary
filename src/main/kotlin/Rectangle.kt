@@ -7,4 +7,11 @@ class Rectangle(val point1: Point, val point2: Point) {
         val area: Double = width * height
         return area
     }
+
+    fun moveRectangle(x: Double, y: Double) {
+        point1.moveX(x)
+        point2.moveX(x)
+        point1.moveY(y)
+        point2.moveY(y)
+    }
 }
