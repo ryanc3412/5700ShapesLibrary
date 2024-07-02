@@ -1,6 +1,11 @@
 package org.example
 
 class Circle(val point: Point, private var radii1: Double, private var radii2: Double) {
+    init {
+        if (radii1 != radii2) {
+            throw IllegalArgumentException("A circle must have radii of the same length.")
+        }
+    }
     fun getRadii1(): Double {
         return radii1
     }

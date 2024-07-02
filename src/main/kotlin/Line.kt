@@ -4,6 +4,11 @@ import kotlin.math.sqrt
 import kotlin.math.pow
 
 class Line(val point1: Point, val point2: Point) {
+    init {
+        if (point1.equals(point2)) {
+            throw IllegalArgumentException("A line cannot have 0 length.")
+        }
+    }
     // slope of the line between 2 points
     fun getSlope(): Double? {
         if (point1.getX() == point2.getX()) {

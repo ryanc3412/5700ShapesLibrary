@@ -20,4 +20,7 @@ class Point(private var x: Double, private var y: Double) {
     fun clone(): Point {
         return Point(x, y)
     }
+    fun equals(point: Point): Boolean {
+        return (this.x == point.getX() && this.y == point.getY())
+    }
 }
