@@ -15,6 +15,7 @@ class Triangle(private val point1: Point, private val point2: Point, private val
             point2.getX() * (point3.getY() - point1.getY()) +
             point3.getX() * (point1.getY() - point2.getY()))
     }
+
     fun moveTriangle(x: Double, y: Double) {
         point1.moveX(x)
         point2.moveX(x)
