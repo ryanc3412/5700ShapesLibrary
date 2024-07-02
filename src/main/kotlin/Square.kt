@@ -10,6 +10,7 @@ class Square(val point1: Point, val point2: Point) {
             throw   IllegalArgumentException("A square must have equivalent height and width.")
         }
     }
+
     fun getArea(): Double {
         val widthHeight: Double = Math.abs(point1.getX() - point2.getX())
         val area: Double = widthHeight * widthHeight
@@ -21,5 +22,21 @@ class Square(val point1: Point, val point2: Point) {
         point2.moveX(x)
         point1.moveY(y)
         point2.moveY(y)
+    }
+
+    fun getPoint1X(): Double {
+        return point1.getX()
+    }
+
+    fun getPoint1Y(): Double {
+        return point1.getY()
+    }
+
+    fun getPoint2X(): Double {
+        return point2.getX()
+    }
+
+    fun getPoint2Y(): Double {
+        return point2.getY()
     }
 }
