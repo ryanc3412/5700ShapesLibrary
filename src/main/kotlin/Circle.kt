@@ -1,16 +1,14 @@
 package org.example
 
-class Circle(val point: Point, private var radii1: Double, private var radii2: Double) {
+class Circle(val point: Point, private var radius: Double) {
     init {
-        if (radii1 != radii2) {
-            throw IllegalArgumentException("A circle must have radii of the same length.")
-        } else if (radii1 == 0.0 || radii2 == 0.0) {
-            throw IllegalArgumentException("Radii has to be greater than 0.")
+        if (radius <= 0.0) {
+            throw IllegalArgumentException("Radius has to be greater than 0.")
         }
     }
 
     fun getArea(): Double {
-        return Math.PI * radii1 * radii2
+        return Math.PI * radius * radius
     }
 
 //    moves by a delta along each axis
@@ -19,20 +17,12 @@ class Circle(val point: Point, private var radii1: Double, private var radii2: D
         point.moveY(y)
     }
 
-    fun getRadii1(): Double {
-        return radii1
+    fun getRadius(): Double {
+        return radius
     }
 
-    fun getRadii2(): Double {
-        return radii2
-    }
-
-    fun setRaddi1(radii: Double) {
-        this.radii1 = radii
-    }
-
-    fun setRadii2(radii: Double) {
-        this.radii2 = radii
+    fun setRadius(radii: Double) {
+        this.radius = radii
     }
 
     fun getPointX(): Double {

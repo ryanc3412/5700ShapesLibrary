@@ -3,9 +3,7 @@ import kotlin.math.hypot
 
 class Ellipse(private val point: Point, private var radii1: Double, private var radii2: Double) {
     init {
-        if (radii1 == 0.0 || radii2 == 0.0) {
-            throw IllegalArgumentException("Radii has to be greater than 0.")
-        }
+        validateRadii()
     }
 
     fun getArea(): Double {
@@ -27,10 +25,12 @@ class Ellipse(private val point: Point, private var radii1: Double, private var 
     }
 
     fun setRaddi1(radii: Double) {
+        validateRadii()
         this.radii1 = radii
     }
 
     fun setRadii2(radii: Double) {
+        validateRadii()
         this.radii2 = radii
     }
 
@@ -40,5 +40,11 @@ class Ellipse(private val point: Point, private var radii1: Double, private var 
 
     fun getPointY(): Double {
         return point.getY()
+    }
+
+    fun validateRadii() {
+        if (radii1 <= 0.0 || radii2 <= 0.0) {
+            throw IllegalArgumentException("Radii has to be greater than 0.")
+        }
     }
 }

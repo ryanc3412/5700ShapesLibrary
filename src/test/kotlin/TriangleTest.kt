@@ -1,4 +1,3 @@
-import org.example.Circle
 import org.example.Point
 import org.example.Triangle
 import kotlin.test.Test
