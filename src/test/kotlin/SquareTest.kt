@@ -2,6 +2,7 @@ import org.example.Square
 import org.example.Point
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 class SquareTest {
     @Test
@@ -31,5 +32,29 @@ class SquareTest {
         assertEquals(5.0, square.getPoint1Y())
         assertEquals(10.0, square.getPoint2X())
         assertEquals(11.0, square.getPoint2Y())
+    }
+    @Test
+    fun testWidthHeightUnequal() {
+        val point1 = Point(0.0, 0.0)
+        val point2 = Point(10.0, 11.0)
+        assertFailsWith<IllegalArgumentException> {
+            Square(point1, point2)
+        }
+    }
+    @Test
+    fun testSameXValue() {
+        val point1 = Point(0.0, 2.0)
+        val point2 = Point(0.0, 4.0)
+        assertFailsWith<IllegalArgumentException> {
+            Square(point1, point2)
+        }
+    }
+    @Test
+    fun testSameYValue() {
+        val point1 = Point(4.0, 0.0)
+        val point2 = Point(2.0, 0.0)
+        assertFailsWith<IllegalArgumentException> {
+            Square(point1, point2)
+        }
     }
 }

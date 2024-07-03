@@ -2,6 +2,7 @@ import org.example.Circle
 import org.example.Point
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 class CircleTest {
     @Test
@@ -39,9 +40,24 @@ class CircleTest {
     fun testGetPoints() {
         val point = Point(0.0, 5.0)
         val radius = 10.0
-        val radii2 = 10.0
         val circle = Circle(point, radius)
         assertEquals(0.0, circle.getPointX())
         assertEquals(5.0, circle.getPointY())
+    }
+    @Test
+    fun testNegativeRadius() {
+        val point = Point(0.0, 5.0)
+        val radius = -2.0
+        assertFailsWith<IllegalArgumentException> {
+            Circle(point, radius)
+        }
+    }
+    @Test
+    fun testZeroRadius() {
+        val point = Point(0.0, 5.0)
+        val radius = 0.0
+        assertFailsWith<IllegalArgumentException> {
+            Circle(point, radius)
+        }
     }
 }

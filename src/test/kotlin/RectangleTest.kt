@@ -2,6 +2,7 @@ import org.example.Rectangle
 import org.example.Point
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 class RectangleTest {
     @Test
@@ -31,5 +32,19 @@ class RectangleTest {
         assertEquals(-5.0, rectangle.getPoint1Y())
         assertEquals(-1.0, rectangle.getPoint2X())
         assertEquals(7.0, rectangle.getPoint2Y())
+    }
+    @Test
+    fun testInvalidRectangle() {
+        val point1 = Point(0.0, 0.0)
+        val point2 = Point(0.0, 5.0)
+        assertFailsWith<IllegalArgumentException> {
+            Rectangle(point1, point2)
+        }
+
+        val point3 = Point(3.0, 0.0)
+        val point4 = Point(3.0, 0.0)
+        assertFailsWith<IllegalArgumentException> {
+            Rectangle(point3, point4)
+        }
     }
 }

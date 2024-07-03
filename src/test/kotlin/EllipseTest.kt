@@ -2,6 +2,7 @@ import org.example.Ellipse
 import org.example.Point
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 class Ellipse {
     @Test
@@ -43,12 +44,30 @@ class Ellipse {
         assertEquals(10.2525, ellipse.getRadii2())
     }
     @Test
-    fun getPoints() {
+    fun testGetPoints() {
         val point = Point(8.0, 25.0000001)
         val radii1 = 5.0
         val radii2 = 10.0
         val ellipse = Ellipse(point, radii1, radii2)
         assertEquals(8.0, ellipse.getPointX())
         assertEquals(25.0000001, ellipse.getPointY())
+    }
+    @Test
+    fun testNegativeRadii() {
+        val point = Point(0.0, 0.0)
+        val radii1 = -5.0
+        val radii2 = 10.0
+        assertFailsWith<IllegalArgumentException> {
+            Ellipse(point, radii1, radii2)
+        }
+    }
+    @Test
+    fun testZeroRadii() {
+        val point = Point(0.0, 0.0)
+        val radii1 = 5.0
+        val radii2 = 0.0
+        assertFailsWith<IllegalArgumentException> {
+            Ellipse(point, radii1, radii2)
+        }
     }
 }
