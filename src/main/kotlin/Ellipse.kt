@@ -1,5 +1,4 @@
 package org.example
-import kotlin.math.hypot
 
 class Ellipse(private val point: Point, private var radii1: Double, private var radii2: Double) {
     init {
@@ -42,7 +41,7 @@ class Ellipse(private val point: Point, private var radii1: Double, private var 
         return point.getY()
     }
 
-    fun validateRadii() {
+    private fun validateRadii() {
         if (radii1 <= 0.0 || radii2 <= 0.0) {
             throw IllegalArgumentException("Radii has to be greater than 0.")
         }

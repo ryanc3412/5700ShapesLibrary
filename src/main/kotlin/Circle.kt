@@ -1,6 +1,6 @@
 package org.example
 
-class Circle(val point: Point, private var radius: Double) {
+class Circle(private val point: Point, private var radius: Double) {
     init {
         if (radius <= 0.0) {
             throw IllegalArgumentException("Radius has to be greater than 0.")
@@ -21,8 +21,11 @@ class Circle(val point: Point, private var radius: Double) {
         return radius
     }
 
-    fun setRadius(radii: Double) {
-        this.radius = radii
+    fun setRadius(newRadius: Double) {
+        if (newRadius <= 0.0) {
+            throw IllegalArgumentException("Radius has to be greater than 0.")
+        }
+        this.radius = newRadius
     }
 
     fun getPointX(): Double {

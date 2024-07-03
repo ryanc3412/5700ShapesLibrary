@@ -1,6 +1,6 @@
 package org.example
 
-class Square(val point1: Point, val point2: Point) {
+class Square(private val point1: Point, private val point2: Point) {
     init {
         if (point1.getX() == point2.getX()) {
             throw IllegalArgumentException("A square cannot have a height of 0.")
